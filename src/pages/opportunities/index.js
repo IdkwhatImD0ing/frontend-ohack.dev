@@ -37,6 +37,7 @@ const defaultValues = {
   email: '',
   phone: '',
   opportunity: '',
+  reasons: '',
 };
 export default function Opportunities() {
   const [selected, setSelected] = useState(opportunities[0]);
@@ -194,6 +195,15 @@ export default function Opportunities() {
               fullWidth
               helperText="Choose one of the above tasks you are interested in."
               value={values.opportunity}
+              onChange={handleInputChange}
+            />
+            <TextField
+              name="reasons"
+              label="Why are you interested in this task?"
+              fullWidth
+              multiline
+              rows={4}
+              value={values.reasons}
               onChange={handleInputChange}
             />
             <Button onClick={() => handleSubmit()}>Submit</Button>
