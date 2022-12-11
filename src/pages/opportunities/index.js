@@ -72,6 +72,11 @@ export default function Opportunities() {
       return;
     }
     console.log(values);
+    // Navigate on new tab
+    window.open(
+      'https://opportunity-hack.slack.com/archives/C04E9HKGH5M',
+      '_blank',
+    );
     handleSnackbarOpen();
     setValues(defaultValues);
   };
@@ -206,7 +211,13 @@ export default function Opportunities() {
               value={values.reasons}
               onChange={handleInputChange}
             />
-            <Button onClick={() => handleSubmit()}>Submit</Button>
+            <Button
+              onClick={() => {
+                handleSubmit();
+              }}
+            >
+              Submit and Join Slack Channel
+            </Button>
           </Stack>
         </Box>
       </Stack>

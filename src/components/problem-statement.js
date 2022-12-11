@@ -81,6 +81,10 @@ export default function ProblemStatement({problem_statement, user, npo_id}) {
     }
     console.log(values);
     console.log(problem_statement);
+    window.open(
+      'https://opportunity-hack.slack.com/archives/C04E9HKGH5M',
+      '_blank',
+    ); //Navigates to the volunteer slack channel
     handleSnackbarOpen();
     handleVolunteerClose();
     setValues(defaultValues);
