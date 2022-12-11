@@ -17,6 +17,7 @@ const opportunities = [
   'Social Media',
   'NewsLetter',
   'Slack',
+  'Hackathon',
 ];
 const details = {
   'Source Projects':
@@ -29,6 +30,8 @@ const details = {
     "The task is to send newsletters to various Women in Tech and Out in Tech groups and clubs to promote OHack and build the event's brand. This involves identifying relevant groups and clubs to target, creating a list of these organizations, and actively engaging with them to build relationships and share information about OHack. This may involve creating and sending newsletters or other forms of communication to these groups, as well as participating in discussions and events to build connections and support. Volunteers who are skilled in marketing, communication, and community building may be particularly well-suited for this task. This is an important task as it will help to build a strong and diverse community of hackers and mentors for OHack, which will in turn help to ensure the success of the event.",
   Slack:
     'The task is to engage and support the OHack Slack community of over 1,000 users. This involves actively participating in discussions and conversations within the Slack channel, answering questions and providing support to community members, and helping to keep the community active and engaged. This may also involve working with the team to create and share relevant content and resources within Slack, and organizing and participating in events and activities to foster community engagement. Volunteers who are skilled in communication and community building may be particularly well-suited for this task. This is an important task as it will help to maintain a strong and active community of OHack participants, which will in turn help to ensure the success of the event.',
+  Hackathon:
+    'For the Day Of Hackathon Volunteer task, the person will be responsible for helping with logistics during the event, answering any questions from hackers and mentors, and managing communications via slack. This will include making announcements, reminding participants about important times (such as when lunch is starting or when the hackathon is ending), and providing general support to ensure the event runs smoothly. The Day Of Hackathon Volunteer should be prepared to be on-call and available throughout the hackathon to assist as needed.',
 };
 
 const defaultValues = {
@@ -140,13 +143,33 @@ export default function Opportunities() {
           covered! Select one of the options below to learn more about the
           different volunteer opportunities!
         </Typography>
-        <Select label="Opportunities" value={selected} onChange={handleChange}>
+        <Stack
+          direction="row"
+          spacing={5}
+          alignContent="center"
+          justifyContent="center"
+        >
           {opportunities.map((opportunity) => (
-            <MenuItem key={opportunity} value={opportunity}>
+            <Button
+              key={opportunity}
+              value={opportunity}
+              onClick={handleChange}
+              sx={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: 'darkblue',
+                color: 'white',
+                borderRadius: '50%',
+                '&:hover': {
+                  backgroundColor: 'lightblue',
+                },
+              }}
+            >
               {opportunity}
-            </MenuItem>
+            </Button>
           ))}
-        </Select>
+        </Stack>
+
         <Typography variant="h4">{details[selected]}</Typography>
         <Typography variant="h3">Interested? Sign up below!</Typography>
         <Box
