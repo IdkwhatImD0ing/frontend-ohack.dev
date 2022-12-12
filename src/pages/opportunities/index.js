@@ -12,6 +12,7 @@ import {
 import React, {useState} from 'react';
 
 const opportunities = [
+  // Various Opportunities based on prompt
   'Source Projects',
   'Recruit',
   'Social Media',
@@ -20,6 +21,7 @@ const opportunities = [
   'Hackathon',
 ];
 const details = {
+  // Details for each opportunity
   'Source Projects':
     'Your task is to source projects from nonprofits by reaching out to nonprofits, explaining OHack, funneling them into our nonprofit form, and getting them to join Slack. This involves identifying potential nonprofits to contact, crafting a message that explains OHack and its benefits to nonprofits, guiding interested nonprofits through the process of filling out the nonprofit form, and inviting them to join the OHack Slack channel to connect with other participants and receive updates and support. This is an important task as it will help to build a strong community of nonprofit organizations participating in OHack, which will in turn help to ensure the developers have a variety of projects to choose from',
   Recruit:
@@ -35,6 +37,7 @@ const details = {
 };
 
 const defaultValues = {
+  // Default values for form
   firstName: '',
   lastName: '',
   email: '',
@@ -48,15 +51,18 @@ export default function Opportunities() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [errorOpen, setErrorOpen] = useState(false);
 
+  // Handle Snackbar
   const handleSnackbarClose = () => setSnackbarOpen(false);
   const handleSnackbarOpen = () => setSnackbarOpen(true);
   const handleErrorClose = () => setErrorOpen(false);
   const handleErrorOpen = () => setErrorOpen(true);
 
+  // Handle current opportunity
   const handleChange = (event) => {
     setSelected(event.target.value);
   };
 
+  // Handle Form
   const handleInputChange = (event) => {
     const {name, value} = event.target;
     setValues({
@@ -65,6 +71,7 @@ export default function Opportunities() {
     });
   };
 
+  // Handle Submit
   const handleSubmit = () => {
     if (
       values.firstName === '' ||
@@ -74,7 +81,7 @@ export default function Opportunities() {
       handleErrorOpen();
       return;
     }
-    console.log(values);
+    console.log(values); //TODO: Use volunteer details for something
     // Navigate on new tab
     window.open(
       'https://opportunity-hack.slack.com/archives/C04E9HKGH5M',

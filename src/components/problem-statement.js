@@ -58,10 +58,11 @@ export default function ProblemStatement({problem_statement, user, npo_id}) {
   const [help_checked, setHelpedChecked] = useState('');
   const [helpingType, setHelpingType] = useState('');
 
-  // Code for volunteer dialong
+  // Code for volunteer dialog and form
   const [volunteerOpen, setVolunteerOpen] = useState(false);
   const [values, setValues] = useState(defaultValues);
 
+  // Handle's changes to volunteer form
   const handleInputChange = (event) => {
     const {name, value} = event.target;
     setValues({
@@ -70,6 +71,7 @@ export default function ProblemStatement({problem_statement, user, npo_id}) {
     });
   };
 
+  // Handles submission of volunteer form
   const handleSubmit = () => {
     if (
       values.firstName === '' ||
@@ -85,9 +87,9 @@ export default function ProblemStatement({problem_statement, user, npo_id}) {
       'https://opportunity-hack.slack.com/archives/C04E9HKGH5M',
       '_blank',
     ); //Navigates to the volunteer slack channel
-    handleSnackbarOpen();
-    handleVolunteerClose();
-    setValues(defaultValues);
+    handleSnackbarOpen(); //Opens the snackbar
+    handleVolunteerClose(); // Closes the volunteer dialog
+    setValues(defaultValues); // Resets the volunteer form
   };
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
