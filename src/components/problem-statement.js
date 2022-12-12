@@ -92,18 +92,21 @@ export default function ProblemStatement({problem_statement, user, npo_id}) {
     setValues(defaultValues); // Resets the volunteer form
   };
 
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [errorOpen, setErrorOpen] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false); // State for snackbar
+  const [errorOpen, setErrorOpen] = useState(false); // State for error dialog
 
+  // Code for snackbar and error dialog
   const handleSnackbarClose = () => setSnackbarOpen(false);
   const handleSnackbarOpen = () => setSnackbarOpen(true);
   const handleErrorClose = () => setErrorOpen(false);
   const handleErrorOpen = () => setErrorOpen(true);
 
   const handleVolunteerOpen = () => {
+    // Opens the volunteer dialog
     setVolunteerOpen(true);
   };
   const handleVolunteerClose = () => {
+    // Closes the volunteer dialog
     setVolunteerOpen(false);
   };
 
