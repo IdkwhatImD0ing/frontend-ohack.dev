@@ -46,10 +46,10 @@ const defaultValues = {
   reasons: '',
 };
 export default function Opportunities() {
-  const [selected, setSelected] = useState(opportunities[0]);
-  const [values, setValues] = useState(defaultValues);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [errorOpen, setErrorOpen] = useState(false);
+  const [selected, setSelected] = useState(opportunities[0]); // Current Opportunity
+  const [values, setValues] = useState(defaultValues); // Form Values
+  const [snackbarOpen, setSnackbarOpen] = useState(false); // Snackbar
+  const [errorOpen, setErrorOpen] = useState(false); // Error Snackbar
 
   // Handle Snackbar
   const handleSnackbarClose = () => setSnackbarOpen(false);
@@ -62,7 +62,7 @@ export default function Opportunities() {
     setSelected(event.target.value);
   };
 
-  // Handle Form
+  // Handle Form Value Changes
   const handleInputChange = (event) => {
     const {name, value} = event.target;
     setValues({
@@ -71,7 +71,7 @@ export default function Opportunities() {
     });
   };
 
-  // Handle Submit
+  // Handle Submit Form
   const handleSubmit = () => {
     if (
       values.firstName === '' ||
